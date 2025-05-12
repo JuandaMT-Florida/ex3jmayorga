@@ -35,11 +35,17 @@ class Lighting extends Connection
         foreach ($lamps as $lamp) {
             $icon = $lamp->isOn() ? 'img/bulb-icon-on.png' : 'img/bulb-icon-off.png';
             $newStatus = $lamp->isOn() ? 0 : 1;
-            echo "<div>
-                    <img src='$icon' width='20' />
-                    {$lamp->getName()} - {$lamp->getModel()} - {$lamp->getWattage()}W - {$lamp->getZone()}
-                    <a href='changestatus.php?id={$lamp->getId()}&status=$newStatus'>Toggle</a>
-                  </div>";
+            $linkStatus = $lamp->isOn() ? "off" : "on";
+            echo "<div class='element {$linkStatus}'>
+                <h4>
+                    <a href='changestatus.php?id={$lamp->getId()}&status=$newStatus'>
+                        <img src='$icon' width='20' />
+                    </a>
+                    {$lamp->getName()} - {$lamp->getModel()}
+                </h4>
+                <h1>{$lamp->getWattage()}W</h1>
+                <h4>{$lamp->getZone()}</h4>
+            </div>";
         }
     }
 

@@ -3,7 +3,7 @@ class Connection {
     protected $pdo;
 
     public function __construct() {
-        $conf = json_decode(file_get_contents(__DIR__ . '/../conf.json'), true);
+        $conf = json_decode(file_get_contents(__DIR__ . '/../config.json'), true);
         $dsn = "mysql:host={$conf['host']};dbname={$conf['dbname']};charset=utf8";
         try {
             $this->pdo = new PDO($dsn, $conf['user'], $conf['password']);

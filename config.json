@@ -1,6 +1,6 @@
 {
-	"host": "localhost",
+	"host": "db",
 	"dbname": "stadium",
 	"user": "root",
-	"password": ""
+	"password": "test"
 }
